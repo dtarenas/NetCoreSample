@@ -54,7 +54,6 @@ Note: You can use wherever DB engine, feel like free!
       <li>MySql.Data.EntityFrameworkCore</li>
       <li>Microsoft.AspNetCore.Mvc.NewtonsoftJson</li>
     </ul>
-  
   </li>
   <li><b>Connection String:</b>   "ConnectionStrings": { "DefaultConnection": "server=localhost;port=3306;user=root;password=Diego1.;database=net_core_sample"}</li>
   <li><b>Add Context:</b>
@@ -68,6 +67,14 @@ Note: You can use wherever DB engine, feel like free!
                 .AddNewtonsoftJson(options => options.SerializerSettings.DateFormatHandling = DateFormatHandling.MicrosoftDateFormat)
                 .AddNewtonsoftJson(options => options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc);
   
+  </li>
+  <li>
+  Nuget Manage Console:
+  <ul>
+    <li>Fist Time --> Add-Migration Initial</li>
+    <li>Update Database --> Update-Database (Update last Migration)</li>
+   <li>More times --> Add-Migration [PutHereChangeName]</li>
+  </ul>
   </li>
 </ul>
 
