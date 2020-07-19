@@ -63,6 +63,17 @@
         public Status Status { get; set; }
 
         /// <summary>
+        /// Gets or sets the author.
+        /// </summary>
+        /// <value>
+        /// The author.
+        /// </value>
+        [Display(Name = "Autor")]
+        [Required(ErrorMessage = "{0} es oblogatorio")]
+        [StringLength(100)]
+        public string Author { get; set; }
+
+        /// <summary>
         /// Gets or sets the created on.
         /// </summary>
         /// <value>

@@ -59,7 +59,7 @@ namespace NetCoreSample.Models.Entities
         /// <value>
         /// The URL cover picture.
         /// </value>
-        [Display(Name = "Descrición General")]
+        [Display(Name = "Url CoverPicture")]
         [StringLength(500)]
         public string UrlCoverPicture { get; set; }
 
