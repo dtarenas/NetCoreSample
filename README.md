@@ -22,6 +22,7 @@ Note: You can use wherever DB engine, feel like free!
 <ul>
 <li>Download Visual Studio 2019 <a href="https://visualstudio.microsoft.com/es/vs/community/" target="_blank">Here.</a></li>
 <li>Download Visual Studio Code <a href="https://code.visualstudio.com/download" target="_blank">Here.</a></li>
+  <li>Postman <a href="https://www.postman.com/downloads/" target="_blank">Here.</a></li>
 </ul>
 <br/>
 <i><b>Remember:</b> You must install all dependencies for net core.<i/>
@@ -38,6 +39,40 @@ Note: You can use wherever DB engine, feel like free!
   <li>To be continue...</li>
 </ol>
 </p>
+
+<h3>Db Diagram</h3>
+
+![test2](https://user-images.githubusercontent.com/42014718/87883829-b3ca1500-c9cf-11ea-9206-22c55c201f4f.png)
+
+
+<h4>Tips</h4>
+<ul>
+  <li><b>Nuget dependencies:</b> 
+    <ul>
+    <li>Microsoft.EntityFrameworkCore</li>
+      <li>Microsoft.EntityFrameworkCore.Tools</li>
+      <li>MySql.Data.EntityFrameworkCore</li>
+      <li>Microsoft.AspNetCore.Mvc.NewtonsoftJson</li>
+    </ul>
+  
+  </li>
+  <li><b>Connection String:</b>   "ConnectionStrings": { "DefaultConnection": "server=localhost;port=3306;user=root;password=Diego1.;database=net_core_sample"}</li>
+  <li><b>Add Context:</b>
+    services.AddDbContext<inventekContext>(options =>
+                options.UseMySQL(this.Configuration.GetConnectionString("DefaultConnection")));
+  </li>
+  <li><b>Resolve Json Responses:</b>
+    services.AddMvc()
+                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver())
+                .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore)
+                .AddNewtonsoftJson(options => options.SerializerSettings.DateFormatHandling = DateFormatHandling.MicrosoftDateFormat)
+                .AddNewtonsoftJson(options => options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc);
+  
+  </li>
+</ul>
+
+
+
 
 <p>Many thanks 
   <br>
