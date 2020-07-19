@@ -40,6 +40,11 @@ Note: You can use wherever DB engine, feel like free!
 </ol>
 </p>
 
+<h3>Db Diagram</h3>
+
+![test2](https://user-images.githubusercontent.com/42014718/87883829-b3ca1500-c9cf-11ea-9206-22c55c201f4f.png)
+
+
 <h4>Tips</h4>
 <ul>
   <li><b>Nuget dependencies:</b> 
