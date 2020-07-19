@@ -9,9 +9,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. DAL", "2. DAL", "{3C8B9A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Models", "3. Models", "{78950814-2D57-4ED8-A8BC-81277D878438}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreSample.Models", "NetCoreSample.Models\NetCoreSample.Models.csproj", "{95841A8D-A7BE-4A9F-91EF-459FEC3A23BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreSample.DAL", "NetCoreSample.DAL\NetCoreSample.DAL.csproj", "{2CC5BFB5-8BAD-4968-9B2F-5F4440E9763D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95841A8D-A7BE-4A9F-91EF-459FEC3A23BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95841A8D-A7BE-4A9F-91EF-459FEC3A23BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95841A8D-A7BE-4A9F-91EF-459FEC3A23BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95841A8D-A7BE-4A9F-91EF-459FEC3A23BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CC5BFB5-8BAD-4968-9B2F-5F4440E9763D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC5BFB5-8BAD-4968-9B2F-5F4440E9763D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC5BFB5-8BAD-4968-9B2F-5F4440E9763D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC5BFB5-8BAD-4968-9B2F-5F4440E9763D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95841A8D-A7BE-4A9F-91EF-459FEC3A23BE} = {78950814-2D57-4ED8-A8BC-81277D878438}
+		{2CC5BFB5-8BAD-4968-9B2F-5F4440E9763D} = {3C8B9A6E-5EF3-4112-8079-4D6CC8C0EA28}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AC8B627A-84A5-419C-A2B5-01A505CAE4C2}
