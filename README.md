@@ -36,6 +36,12 @@ Note: You can use wherever DB engine, feel like free!
   <li>Create a dot net core 3.1 project using visual studio 2019</li>
   <li>How To build a project on VS</li>
   <li>EntityFrameworCore (Code first approach)</li>
+  <li>Create Context</li>
+  <li><b>Build a MVC Prject and explain essencial functionality</b></li>
+  <li>Add Javascript functionality</li>
+  <li>Repository Pattern</li>
+  <li>Refactor using Repos</li>
+  <li>Build a Web API project</li>
   <li>To be continue...</li>
 </ol>
 </p>
