@@ -52,6 +52,7 @@ Note: You can use wherever DB engine, feel like free!
     <li>Microsoft.EntityFrameworkCore</li>
       <li>Microsoft.EntityFrameworkCore.Tools</li>
       <li>MySql.Data.EntityFrameworkCore</li>
+      <li>Microsoft.EntityFrameworkCore.SqlServer</li>
       <li>Microsoft.AspNetCore.Mvc.NewtonsoftJson</li>
     </ul>
   </li>
@@ -74,6 +75,8 @@ Note: You can use wherever DB engine, feel like free!
     <li>Fist Time --> Add-Migration Initial</li>
     <li>Update Database --> Update-Database (Update last Migration)</li>
    <li>More times --> Add-Migration [PutHereChangeName]</li>
+    <li>Drop Database --> Drop-Database</li>
+    <li>Remove last Migration --> Remove-Migration</li>
   </ul>
   </li>
 </ul>
