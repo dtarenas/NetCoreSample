@@ -8,6 +8,10 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200719221833_Inital.cs" />
     <Compile Remove="Migrations\20200719221833_Inital.Designer.cs" />
+    <Compile Remove="Migrations\20200720153557_FixCourseRelationWithRemarks.cs" />
+    <Compile Remove="Migrations\20200720153557_FixCourseRelationWithRemarks.Designer.cs" />
+    <Compile Remove="Migrations\20200720154351_FixCourseRelationWithRemarks.cs" />
+    <Compile Remove="Migrations\20200720154351_FixCourseRelationWithRemarks.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

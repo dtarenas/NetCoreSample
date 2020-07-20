@@ -22,7 +22,8 @@ namespace NetCoreSample.Web.MVC.Controllers
         // GET: Remarks
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Remarks.ToListAsync());
+            var dataContext = _context.Remarks.Include(r => r.Course);
+            return View(await dataContext.ToListAsync());
         }
 
         // GET: Remarks/Details/5
@@ -34,6 +35,7 @@ namespace NetCoreSample.Web.MVC.Controllers
             }
 
             var remarks = await _context.Remarks
+                .Include(r => r.Course)
                 .FirstOrDefaultAsync(m => m.RemarksId == id);
             if (remarks == null)
             {
@@ -46,7 +48,7 @@ namespace NetCoreSample.Web.MVC.Controllers
         // GET: Remarks/Create
         public IActionResult Create()
         {
-            ViewBag.FkCursos = new SelectList(this._context.Courses, "CourseId", "ShortDescription");
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "ShortDescription");
             return View();
         }
 
@@ -55,7 +57,7 @@ namespace NetCoreSample.Web.MVC.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RemarksId,FkCourseId,Description,Qualification,Status,Author,CreatedOn")] Remarks remarks)
+        public async Task<IActionResult> Create([Bind("RemarksId,CourseId,Description,Qualification,Status,Author,CreatedOn")] Remarks remarks)
         {
             if (ModelState.IsValid)
             {
@@ -63,6 +65,7 @@ namespace NetCoreSample.Web.MVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "ShortDescription", remarks.CourseId);
             return View(remarks);
         }
 
@@ -79,6 +82,7 @@ namespace NetCoreSample.Web.MVC.Controllers
             {
                 return NotFound();
             }
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "ShortDescription", remarks.CourseId);
             return View(remarks);
         }
 
@@ -87,7 +91,7 @@ namespace NetCoreSample.Web.MVC.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RemarksId,FkCourseId,Description,Qualification,Status,Author,CreatedOn")] Remarks remarks)
+        public async Task<IActionResult> Edit(int id, [Bind("RemarksId,CourseId,Description,Qualification,Status,Author,CreatedOn")] Remarks remarks)
         {
             if (id != remarks.RemarksId)
             {
@@ -114,6 +118,7 @@ namespace NetCoreSample.Web.MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "ShortDescription", remarks.CourseId);
             return View(remarks);
         }
 
@@ -126,6 +131,7 @@ namespace NetCoreSample.Web.MVC.Controllers
             }
 
             var remarks = await _context.Remarks
+                .Include(r => r.Course)
                 .FirstOrDefaultAsync(m => m.RemarksId == id);
             if (remarks == null)
             {

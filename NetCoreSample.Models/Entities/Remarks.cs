@@ -29,7 +29,7 @@
         /// </value>
         [Required(ErrorMessage = "{0} es oblogatorio")]
         [Display(Name = "Curso")]
-        public int FkCourseId { get; set; }
+        public int CourseId { get; set; }
 
         /// <summary>
         /// Gets or sets the description.
@@ -89,6 +89,6 @@
         /// <value>
         /// The fk courses.
         /// </value>
-        public virtual Courses FkCourses { get; set; }
+        public virtual Courses Course { get; set; }
     }
 }
