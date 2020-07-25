@@ -40,6 +40,7 @@ namespace NetCoreSample.Models.Entities
         [Display(Name = "Descrición Corta")]
         [Required(ErrorMessage = "{0} es oblogatiorio")]
         [StringLength(150)]
+        [MaxLength(150)]
         public string ShortDescription { get; set; }
 
         /// <summary>

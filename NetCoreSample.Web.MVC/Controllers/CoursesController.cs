@@ -34,8 +34,8 @@ namespace NetCoreSample.Web.MVC.Controllers
                 return NotFound();
             }
 
-            var courses = await _context.Courses
-                .FirstOrDefaultAsync(m => m.CourseId == id);
+            var courses = await _context.Courses.FindAsync(id);
+                
             if (courses == null)
             {
                 return NotFound();
