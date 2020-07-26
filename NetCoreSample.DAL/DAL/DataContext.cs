@@ -33,5 +33,13 @@
         /// My property.
         /// </value>
         public DbSet<Remarks> Remarks { get; set; }
+
+        /// <summary>
+        /// Gets or sets the users.
+        /// </summary>
+        /// <value>
+        /// The users.
+        /// </value>
+        public DbSet<Users> Users { get; set; }
     }
 }

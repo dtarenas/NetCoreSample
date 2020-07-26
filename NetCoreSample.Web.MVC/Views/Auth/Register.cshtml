@@ -1,0 +1,102 @@
+﻿@model NetCoreSample.Models.DTOs.UsersRegisterDTO
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1>Registro</h1>
+    <form asp-action="Register" asp-controller="Auth" id="frmRegister">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label asp-for="FullName"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label asp-for="PasswordCheck"></label>
+                    <input asp-for="PasswordCheck" class="form-control" />
+                    <span asp-validation-for="PasswordCheck" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" id="renderLoading" class="btn btn-success">Registrarse</button>
+            </div>
+        </div>
+    </form>
+    <div id="renderResponse">
+
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        (() => {
+            const frm = document.getElementById("frmRegister");
+            frm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                if (!$(frm).valid()) {
+                    return;
+                }
+
+                document.getElementById("renderLoading").innerHTML = 'Registrarse <i class="fa fa-spinner fa-spin" style="font-size:24px"></i>';
+                //fetch("/Auth/Register", {
+                //    method: "POST",
+                //    body: new FormData(frm)
+                //}).then((response) => {
+                //    if (response.ok) {
+                //        alert("Todo Salió al pelo");
+                //        return response.text();
+                //    } else {
+                //        alert("Qué le pashó!");
+                //        return;
+                //    }
+                //}).then((content) => {
+                //    document.getElementById("renderResponse").innerHTML = content;
+                //});
+                debugger;
+                const serverResponse = await fetch("/Auth/Register", {
+                    method: "POST",
+                    body: new FormData(frm)
+                });
+
+                if (serverResponse.ok) {
+                    document.getElementById("renderLoading").innerHTML = 'Registrarse';
+                    frm.reset();
+                    alert("Todo Salió al pelo");
+                    const content = await serverResponse.text();
+                    document.getElementById("renderResponse").innerHTML = content;
+                } else {
+                    alert("Qué le pashó!");
+                    return;
+                }
+            })
+        })();
+    </script>
+
+}
