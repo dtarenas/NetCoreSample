@@ -60,6 +60,8 @@ Note: You can use wherever DB engine, feel like free!
       <li>MySql.Data.EntityFrameworkCore</li>
       <li>Microsoft.EntityFrameworkCore.SqlServer</li>
       <li>Microsoft.AspNetCore.Mvc.NewtonsoftJson</li>
+      <li>System.IdentityModel.Tokens.Jwt</li>
+      <li>Microsoft.AspNetCore.Authentication.JwtBearer</li>
     </ul>
   </li>
   <li><b>Connection String:</b>   "ConnectionStrings": { "DefaultConnection": "server=localhost;port=3306;user=root;password=Diego1.;database=net_core_sample"}</li>
@@ -75,6 +77,23 @@ Note: You can use wherever DB engine, feel like free!
                 .AddNewtonsoftJson(options => options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc);
   
   </li>
+  <li><b>To Set JWT config</b>
+   services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.RequireHttpsMetadata = false;
+                    options.SaveToken = true;
+                    options.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidAudience = Configuration.GetSection("JwtSettings").GetValue<string>("Audience"),
+                        ValidIssuer = Configuration.GetSection("JwtSettings").GetValue<string>("Issuer"),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetSection("JwtSettings").GetValue<string>("Key")))
+                    };
+                });
+  </li>
+  
   <li>
   Nuget Manage Console:
   <ul>
