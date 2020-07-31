@@ -22,7 +22,7 @@ namespace NetCoreSample.Web.MVC
         {
             services.AddControllersWithViews();
             services.AddDbContext<DataContext>(
-                options => options.UseMySQL(this.Configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("NetCoreSample.Web.MVC")));
+                options => options.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("NetCoreSample.Web.MVC")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
