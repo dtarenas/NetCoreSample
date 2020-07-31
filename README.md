@@ -109,7 +109,7 @@ Note: You can use wherever DB engine, feel like free!
 
 
 
-<p>Many thanks 
+<p>Many thanks,
   <br>
   <b>Just do it!</b> - <i>Enjoy the play!</i>
 </p>
